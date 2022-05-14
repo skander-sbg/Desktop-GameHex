@@ -5,93 +5,142 @@
  */
 package com.gamehex.entity;
 
+import java.util.Objects;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleListProperty;
 
 /**
  *
  * @author Yasmine Daly
  */
 public class Teams {
-    private SimpleIntegerProperty teamid;
-    private SimpleStringProperty teamlogo;
-    private SimpleStringProperty teamname;
-    private SimpleStringProperty teamcountry;
-    private SimpleStringProperty teamcoach;
-    private SimpleStringProperty teamcap;
-    private SimpleListProperty <ProPlayers> players;
+    private int  teamId;
+    private String teamLogo;
+    private String teamName;
+    private String teamTag;
+    private String teamRegion;
+    private String teamMail;
+    
 
-    public Teams(SimpleIntegerProperty teamid, SimpleStringProperty teamlogo, SimpleStringProperty teamname, SimpleStringProperty teamcountry, SimpleStringProperty teamcoach, SimpleStringProperty teamcap, SimpleListProperty<ProPlayers> players) {
-        this.teamid = teamid;
-        this.teamlogo = teamlogo;
-        this.teamname = teamname;
-        this.teamcountry = teamcountry;
-        this.teamcoach = teamcoach;
-        this.teamcap = teamcap;
-        this.players = players;
+    public Teams(int teamId, String teamName, String teamTag, String teamMail, String teamRegion) {
+        this.teamId = teamId;
+        //this.teamLogo = teamLogo;
+        this.teamName = teamName;
+        this.teamTag = teamTag;
+        this.teamRegion = teamRegion;
+        this.teamMail = teamMail;
+       
     }
 
-    public SimpleIntegerProperty getTeamid() {
-        return teamid;
+    public Integer getTeamId() {
+        return teamId;
     }
 
-    public SimpleStringProperty getTeamlogo() {
-        return teamlogo;
+    public String getTeamLogo() {
+        return teamLogo;
     }
 
-    public SimpleStringProperty getTeamname() {
-        return teamname;
+    public String getTeamName() {
+        return teamName;
     }
 
-    public SimpleStringProperty getTeamcountry() {
-        return teamcountry;
+    public String getTeamTag() {
+        return teamTag;
     }
 
-    public SimpleStringProperty getTeamcoach() {
-        return teamcoach;
+    public String getTeamReg() {
+        return teamRegion;
     }
 
-    public SimpleStringProperty getTeamcap() {
-        return teamcap;
+    public String getTeamMail() {
+        return teamMail;
     }
 
-    public SimpleListProperty<ProPlayers> getPlayers() {
-        return players;
+
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
-    public void setTeamid(SimpleIntegerProperty teamid) {
-        this.teamid = teamid;
+    public void setTeamLogo(String teamLogo) {
+        this.teamLogo = teamLogo;
     }
 
-    public void setTeamlogo(SimpleStringProperty teamlogo) {
-        this.teamlogo = teamlogo;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
-    public void setTeamname(SimpleStringProperty teamname) {
-        this.teamname = teamname;
+    public void setTeamTag(String teamTag) {
+        this.teamTag = teamTag;
     }
 
-    public void setTeamcountry(SimpleStringProperty teamcountry) {
-        this.teamcountry = teamcountry;
+    public void setTeamReg(String teamRegion) {
+        this.teamRegion = teamRegion;
     }
 
-    public void setTeamcoach(SimpleStringProperty teamcoach) {
-        this.teamcoach = teamcoach;
+    public void setTeamMail(String teamMail) {
+        this.teamMail = teamMail;
     }
 
-    public void setTeamcap(SimpleStringProperty teamcap) {
-        this.teamcap = teamcap;
-    }
-
-    public void setPlayers(SimpleListProperty<ProPlayers> players) {
-        this.players = players;
-    }
+  
 
     @Override
     public String toString() {
-        return "Teams{" + "teamid=" + teamid + ", teamlogo=" + teamlogo + ", teamname=" + teamname + ", teamcountry=" + teamcountry + ", teamcoach=" + teamcoach + ", teamcap=" + teamcap + ", players=" + players + '}';
+        return "Teams{" + "teamId=" + teamId + ", teamLogo=" + teamLogo + ", teamName=" + teamName + ", teamTag=" + teamTag + ", teamRegion=" + teamRegion + ", teamMail=" + teamMail +  '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 17 * hash + Objects.hashCode(this.teamId);
+        hash = 17 * hash + Objects.hashCode(this.teamLogo);
+        hash = 17 * hash + Objects.hashCode(this.teamName);
+        hash = 17 * hash + Objects.hashCode(this.teamTag);
+        hash = 17 * hash + Objects.hashCode(this.teamRegion);
+        hash = 17 * hash + Objects.hashCode(this.teamMail);
+        
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Teams other = (Teams) obj;
+        if (!Objects.equals(this.teamLogo, other.teamLogo)) {
+            return false;
+        }
+        if (!Objects.equals(this.teamName, other.teamName)) {
+            return false;
+        }
+        if (!Objects.equals(this.teamTag, other.teamTag)) {
+            return false;
+        }
+        if (!Objects.equals(this.teamRegion, other.teamRegion)) {
+            return false;
+        }
+        if (!Objects.equals(this.teamMail, other.teamMail)) {
+            return false;
+        }
+        if (!Objects.equals(this.teamId, other.teamId)) {
+            return false;
+        }
+       
+        return true;
+    }
+
+   
+
+   
+    }
+
+   
     
     
-}
+

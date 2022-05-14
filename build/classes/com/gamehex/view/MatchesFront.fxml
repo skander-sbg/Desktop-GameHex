@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.MatchesFrontController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="-9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="800.0" prefWidth="1068.0" style="-fx-background-color: #172333;" stylesheets="@../css/Stylesheet.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="868.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_page.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tvMatches" layoutX="15.0" layoutY="163.0" prefHeight="490.0" prefWidth="1038.0" stylesheets="@../css/Stylesheet.css">
+               <columns>
+                  <TableColumn fx:id="colMatchId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="colTeam1" prefWidth="75.0" text="Team1" />
+                  <TableColumn fx:id="colTeam2" prefWidth="75.0" text="Team2" />
+                  <TableColumn fx:id="colMatchRes" prefWidth="222.0" text="Result" />
+                  <TableColumn fx:id="colMatchCom" minWidth="0.0" prefWidth="253.0" text="Comment" />
+                  <TableColumn fx:id="colMatchTime" prefWidth="157.0" text="Time" />
+                  <TableColumn fx:id="colMatchDate" prefWidth="168.0" text="Date" />
+               </columns>
+            </TableView>
+            <TextField fx:id="keywordTextField" layoutX="157.0" layoutY="122.0" prefHeight="31.0" prefWidth="127.0" promptText="Keywords.." />
+            <Label layoutX="21.0" layoutY="129.0" text="SEARCH MATCH" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnHome" buttonType="RAISED" layoutX="940.0" layoutY="742.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#OnHomeClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Home" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

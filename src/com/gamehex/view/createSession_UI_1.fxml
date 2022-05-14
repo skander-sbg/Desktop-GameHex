@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="571.0" prefWidth="890.0" style="-fx-background-color: #172333;" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.createSession_UI_Controller">
+    <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="676.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@home_page.png" />
+         </image>
+      </ImageView>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TableView fx:id="tv_sessions" layoutY="242.0" onMouseClicked="#handleMouseAction" prefHeight="253.0" prefWidth="890.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="87.0" text="ID" />
+            <TableColumn fx:id="col_Player" prefWidth="141.0" text="Player" />
+            <TableColumn fx:id="col_Coach" prefWidth="186.0" text="Coach" />
+            <TableColumn fx:id="col_Date" prefWidth="144.0" text="Date" />
+          <TableColumn fx:id="col_Start" prefWidth="200.0" text="Start Time" />
+        </columns>
+         <stylesheets>
+            <URL value="@../css/Stylesheet.css" />
+         </stylesheets>
+      </TableView>
+      <Label layoutX="618.0" layoutY="198.0" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <VBox layoutX="112.0" layoutY="46.0" prefHeight="182.0" prefWidth="166.0" spacing="23.0">
+         <children>
+            <JFXComboBox fx:id="cb_coach" prefHeight="39.0" prefWidth="166.0" />
+            <JFXDatePicker fx:id="dp_session" prefHeight="39.0" prefWidth="190.0" promptText="Pick date...">
+               <defaultColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#f40e4d" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </defaultColor>
+            </JFXDatePicker>
+            <JFXTimePicker fx:id="tp_session" prefHeight="39.0" prefWidth="190.0" promptText="Pick time...">
+               <defaultColor>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#f40e4d" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </defaultColor>
+            </JFXTimePicker>
+         </children>
+      </VBox>
+      <VBox layoutX="8.0" layoutY="48.0" prefHeight="281.0" prefWidth="77.0" spacing="45.0">
+         <children>
+            <Label text="COACH" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Date" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Start Time" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btn_insert" buttonType="RAISED" layoutX="310.0" layoutY="50.0" onAction="#handleButtonAction" prefHeight="39.0" prefWidth="147.0" styleClass="buttonfx" text="Schedule Session" textFill="WHITE">
+         <effect>
+            <DropShadow color="#898997" />
+         </effect>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#25135d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+         <stylesheets>
+            <URL value="@../css/Stylesheet.css" />
+         </stylesheets>
+      </JFXButton>
+      <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="326.0" layoutY="164.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" text="Cancel" textFill="WHITE">
+         <effect>
+            <DropShadow color="#898997" />
+         </effect>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#25135d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
+      <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="326.0" layoutY="108.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Update" textFill="WHITE">
+         <effect>
+            <DropShadow color="#898997" />
+         </effect>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#25135d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
+      <Label fx:id="label_warning" layoutX="466.0" layoutY="126.0" text="Fill All Fields" textFill="RED" visible="false">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="keywordTextField" layoutX="723.0" layoutY="189.0" prefHeight="39.0" prefWidth="140.0" promptText="Keyword..." />
+      <JFXButton fx:id="btn_back" layoutX="639.0" layoutY="507.0" onAction="#handleBackBtn" prefHeight="39.0" prefWidth="100.0" styleClass="buttonfx" text="Back" textFill="WHITE" />
+      <JFXButton fx:id="btn_mySessions" layoutX="26.0" layoutY="507.0" onAction="#handleBackBtn" prefHeight="39.0" prefWidth="114.0" styleClass="buttonfx" text="My Sessions" textFill="WHITE" />
+      <JFXButton fx:id="btnHome" buttonType="RAISED" layoutX="749.0" layoutY="506.0" onAction="#OnHomeClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Home" textFill="WHITE">
+         <effect>
+            <DropShadow color="#898997" />
+         </effect>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#25135d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+    </children>
+</AnchorPane>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: #FF3364;" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.ArticleController">
+   <children>
+      <ImageView fitHeight="921.0" fitWidth="934.0" layoutX="-6.0" layoutY="-521.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/ramyyy.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="97.0" prefHeight="31.0" prefWidth="350.0" text="HERE YOU CAN EXPRESS YOUR THOUGHTS">
+         <font>
+            <Font name="System Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="tfArticle" layoutX="20.0" layoutY="130.0" prefHeight="123.0" prefWidth="338.0" />
+      <TableView fx:id="tvArticles" layoutX="392.0" layoutY="97.0" onMouseClicked="#forUpdate" prefHeight="200.0" prefWidth="499.0">
+        <columns>
+          <TableColumn fx:id="tvID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="tvContent" prefWidth="423.2000305175781" text="Article" />
+        </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="133.0" layoutY="284.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Submit" textAlignment="RIGHT">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="update" layoutX="450.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Update">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="delete" layoutX="708.0" layoutY="321.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" text="Delete">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></Button>
+      <ImageView fitHeight="20.0" fitWidth="24.0" layoutX="136.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="20.0" layoutX="451.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/updated.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="708.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/delete.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="signout" layoutX="13.0" layoutY="362.0" mnemonicParsing="false" text="Sign Out" textFill="#ac0d97">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelName" layoutX="321.0" layoutY="14.0" prefHeight="30.0" prefWidth="300.0" textFill="#16c45e">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="profile" layoutX="95.0" layoutY="362.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0" text="Profile" textFill="#ac0d97">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

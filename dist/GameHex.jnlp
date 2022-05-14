@@ -8,9 +8,31 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GameHex.jar" size="14933" download="eager" />
+    <jar href="GameHex.jar" size="3736306" download="eager" />
+    <jar href="lib\AnimateFX-1.2.1.jar" size="94267" download="eager" />
+    <jar href="lib\commons-io-2.11.0-javadoc.jar" size="1268433" download="eager" />
+    <jar href="lib\commons-io-2.11.0-sources.jar" size="398939" download="eager" />
+    <jar href="lib\commons-io-2.11.0-test-sources.jar" size="396534" download="eager" />
+    <jar href="lib\commons-io-2.11.0-tests.jar" size="662564" download="eager" />
+    <jar href="lib\commons-io-2.11.0.jar" size="327135" download="eager" />
+    <jar href="lib\controlsfx-8.40.15.jar" size="1402490" download="eager" />
+    <jar href="lib\controlsfx-samples-8.40.15.jar" size="792003" download="eager" />
+    <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\fontawesomefx-commons-9.1.2.jar" size="24064" download="eager" />
+    <jar href="lib\fontawesomefx-fontawesome-4.7.0-9.1.2.jar" size="137226" download="eager" />
+    <jar href="lib\fxsampler-1.0.10.jar" size="30876" download="eager" />
+    <jar href="lib\javax.mail.jar" size="659033" download="eager" />
+    <jar href="lib\jfoenix-8.0.10.jar" size="2710207" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.27.jar" size="2476480" download="eager" />
+    <jar href="lib\org.apache.commons.io.jar" size="83613" download="eager" />
+    <jar href="lib\org.json-chargebee-1.0.jar" size="40683" download="eager" />
+    <jar href="lib\orianna-4.0.0-rc8-jar-with-dependencies.jar" size="7962571" download="eager" />
+    <jar href="lib\slf4j-simple-1.6.1.jar" size="7669" download="eager" />
+    <jar href="lib\slf4j.api-1.6.1.jar" size="26056" download="eager" />
+    <jar href="lib\twilio-8.9.0-jar-with-dependencies.jar" size="8358946" download="eager" />
+    <jar href="lib\twilio-8.9.0-javadoc.jar" size="14288596" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GameHex" >
     <param name="requiredFXVersion" value="8.0+"/>

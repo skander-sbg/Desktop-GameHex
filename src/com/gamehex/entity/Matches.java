@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package com.gamehex.entity;
+import java.time.LocalDate;
 import java.util.Objects;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import java.sql.Time;
+import java.time.LocalTime;
 
 
 /**
@@ -14,79 +16,109 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Yasmine Daly
  */
 public class Matches {
-    private Integer matchid;
-   // private SimpleIntegerProperty matchid;
-    private SimpleIntegerProperty team1;
-    private SimpleIntegerProperty team2;
-    private SimpleIntegerProperty matchres;
-    private String matchcom;
+    
+    private int matchId;
+    private int team1;
+    private int team2;
+    private String matchRes;
+    private String matchCom;
+    private LocalDate matchDate;
+    private LocalTime matchTime;
     public Matches() {
     }
 
     
-    public Matches(int matchid, int team1,int team2,int matchres, String matchcom) {
-        //this.matchid = new SimpleIntegerProperty(matchid);
-        this.matchid= matchid;
-        this.team1 = new SimpleIntegerProperty(team1);
-        this.team2 = new SimpleIntegerProperty(team2);
-        this.matchres = new SimpleIntegerProperty(matchres);
-        this.matchcom = matchcom;
-    }
-
     
-    public int getMatchId() {
-        //return matchid.get();
-        return matchid;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+    public Matches(int matchId, int team1, int team2, String matchRes, String matchCom, LocalDate matchDate, LocalTime matchTime) {
+        this.matchId = matchId;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.matchRes = matchRes;
+        this.matchCom = matchCom;
+        this.matchDate = matchDate;
+        this.matchTime = matchTime;
     }
 
-    public void setMatchId(int matchid) {
-        //this.matchid = new SimpleIntegerProperty(matchid);
-        this.matchid= matchid;
+    public int getMatchId() {
+        return matchId;
     }
 
     public int getTeam1() {
-        return team1.get();
+        return team1;
+    }
+
+    public int getTeam2() {
+        return team2;
+    }
+
+    public String getMatchRes() {
+        return matchRes;
+    }
+
+    public String getMatchCom() {
+        return matchCom;
+    }
+
+    public LocalDate getMatchDate() {
+        return matchDate;
+    }
+
+    public LocalTime getMatchTime() {
+        return matchTime;
+    }
+
+    public void setMatchId(int matchId) {
+        this.matchId = matchId;
     }
 
     public void setTeam1(int team1) {
-        this.team1 = new SimpleIntegerProperty(team1);
-    }
-     public int getTeam2() {
-        return team2.get();
+        this.team1 = team1;
     }
 
     public void setTeam2(int team2) {
-        this.team2 = new SimpleIntegerProperty(team2);
+        this.team2 = team2;
     }
 
-    public int getMatchRes() {
-        return matchres.get();
+    public void setMatchRes(String matchRes) {
+        this.matchRes = matchRes;
     }
-    public void setMatchRes(int matchres) {
-        this.matchres = new SimpleIntegerProperty(matchres);
-    }
-    public String  getMatchCom(){
-        return matchcom;
-    }
-    public void setMatchCom(String matchcom) {
-        this.matchcom = matchcom;
-    }
-   
 
-    /*@Override
-    public String toString() {
-        return "Matches{" + "id=" + matchid.get() + ", team1=" + team1.get() + ", team2=" + team2.get()+ ", Result=" + matchres.get() + ", Comment=" + matchcom.get()+'}';
-    }*/
+    public void setMatchCom(String matchCom) {
+        this.matchCom = matchCom;
+    }
+
+    public void setMatchDate(LocalDate matchDate) {
+        this.matchDate = matchDate;
+    }
+
+    public void setMatchTime(LocalTime matchTime) {
+        this.matchTime = matchTime;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + Objects.hashCode(this.matchid);
+        int hash = 7;
+        hash = 97 * hash + this.matchId;
+        hash = 97 * hash + this.team1;
+        hash = 97 * hash + this.team2;
+        hash = 97 * hash + Objects.hashCode(this.matchRes);
+        hash = 97 * hash + Objects.hashCode(this.matchCom);
+        hash = 97 * hash + Objects.hashCode(this.matchDate);
+        hash = 97 * hash + Objects.hashCode(this.matchTime);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -94,23 +126,44 @@ public class Matches {
             return false;
         }
         final Matches other = (Matches) obj;
-        if (!Objects.equals(this.matchid, other.matchid)) {
+        if (this.matchId != other.matchId) {
+            return false;
+        }
+        if (this.team1 != other.team1) {
+            return false;
+        }
+        if (this.team2 != other.team2) {
+            return false;
+        }
+        if (!Objects.equals(this.matchRes, other.matchRes)) {
+            return false;
+        }
+        if (!Objects.equals(this.matchCom, other.matchCom)) {
+            return false;
+        }
+        if (!Objects.equals(this.matchDate, other.matchDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.matchTime, other.matchTime)) {
             return false;
         }
         return true;
-    
-    
-    
-}
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    }
 
+    @Override
+    public String toString() {
+        return "Matches{" + "matchId=" + matchId + ", team1=" + team1 + ", team2=" + team2 + ", matchRes=" + matchRes + ", matchCom=" + matchCom + ", matchDate=" + matchDate + ", matchTime=" + matchTime + '}';
+    }
 
     
+    }
+
+    
+
+   
+
     
     
     
-}
+    
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.SceneController">
+   <children>
+      <WebView fx:id="webView" layoutY="77.0" prefHeight="800.0" prefWidth="1200.0" />
+      <Button layoutX="22.0" layoutY="30.0" mnemonicParsing="false" onAction="#loadPage" text="Load" />
+      <TextField fx:id="textField" layoutX="192.0" layoutY="30.0" onAction="#loadPage" prefHeight="31.0" prefWidth="932.0" promptText="Search.." />
+      <Button layoutX="71.0" layoutY="30.0" mnemonicParsing="false" onAction="#refreshPage" text="Refresh" />
+      <Button layoutX="1136.0" layoutY="30.0" mnemonicParsing="false" onAction="#zoomIn" text="+" />
+      <Button layoutX="1167.0" layoutY="30.0" mnemonicParsing="false" onAction="#zoomOut" text="-" />
+   </children>
+</AnchorPane>

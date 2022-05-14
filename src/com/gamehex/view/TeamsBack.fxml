@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.TeamsBackController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-9.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #172333;" stylesheets="@../css/Stylesheet.css">
+         <children>
+            <AnchorPane id="AnchorPane" layoutX="-26.0" layoutY="-14.0" prefHeight="800.0" prefWidth="1068.0" stylesheets="@../css/Stylesheet.css">
+               <children>
+                  <VBox layoutX="39.0" layoutY="196.0" prefHeight="6.0" prefWidth="93.0" spacing="15.0" />
+                  <VBox layoutX="148.0" layoutY="66.0" prefHeight="31.0" prefWidth="100.0" spacing="5.0" />
+                  <TableView fx:id="tvTeams" layoutX="39.0" layoutY="258.0" onMouseClicked="#handleMouseAction" prefHeight="374.0" prefWidth="1035.0">
+                     <columns>
+                        <TableColumn fx:id="colTeamId" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="colTeamName" prefWidth="192.0" text="Name" />
+                        <TableColumn fx:id="colTeamTag" minWidth="0.0" prefWidth="71.0" text="Tag" />
+                        <TableColumn fx:id="colTeamMail" prefWidth="464.0" text="Mail" />
+                        <TableColumn fx:id="colTeamReg" prefWidth="220.0" text="Region" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="59.0" layoutY="221.0" text="SEARCH TEAM" textFill="WHITE" />
+                  <TextField fx:id="keywordTextField" layoutX="176.0" layoutY="216.0" prefHeight="31.0" prefWidth="127.0" promptText="Keywords.." />
+                  <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="39.0" layoutY="639.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Delete" textFill="WHITE">
+                     <effect>
+                        <DropShadow color="#898997" />
+                     </effect>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#25135d" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton fx:id="btnPlayers" buttonType="RAISED" layoutX="955.0" layoutY="639.0" onAction="#handleButtonPlayers" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Show Players" textFill="WHITE">
+                     <effect>
+                        <DropShadow color="#898997" />
+                     </effect>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#25135d" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="883.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@home_page.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="btnHome" buttonType="RAISED" layoutX="955.0" layoutY="739.0" onAction="#OnHomeClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Home" textFill="WHITE">
+                     <effect>
+                        <DropShadow color="#898997" />
+                     </effect>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#25135d" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

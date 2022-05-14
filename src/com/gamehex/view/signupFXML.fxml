@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.SignupFXMLController">
+   <children>
+      <ImageView fitHeight="760.0" fitWidth="763.0" layoutY="-301.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/ramyyy.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="203.0" layoutY="43.0" text="WELCOME WITHIN OUR FAMILY !!!">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutX="271.0" layoutY="114.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <Label text="Name">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Last name">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="CIN">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Phone">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Date">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Email">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label text="PWD">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="380.0" layoutY="114.0" prefHeight="234.0" prefWidth="134.0" spacing="10.0">
+         <children>
+            <TextField fx:id="tfName" />
+            <TextField fx:id="tfLastName" />
+            <TextField fx:id="tfCIN" prefHeight="26.0" prefWidth="126.0" />
+            <TextField fx:id="tfPhone" />
+            <DatePicker fx:id="tfDate" />
+            <TextField fx:id="tfEmail" />
+            <PasswordField fx:id="tfPWD" />
+         </children>
+      </VBox>
+      <Button fx:id="submit" cache="true" layoutX="353.0" layoutY="408.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="110.0" text="Submit">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="26.0" fitWidth="32.0" layoutX="355.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pics/sign-up%20(1).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="back" cache="true" layoutX="659.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="31.0" prefWidth="94.0" text="Return">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="659.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pics/undo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photoAnime" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pics/logo2%20.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

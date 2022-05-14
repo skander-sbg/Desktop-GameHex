@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #172333;" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.TeamsFrontController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="-26.0" layoutY="-14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1129.0" stylesheets="@../css/Stylesheet.css">
+         <children>
+            <VBox layoutX="39.0" layoutY="196.0" prefHeight="6.0" prefWidth="93.0" spacing="15.0" />
+            <VBox layoutX="148.0" layoutY="66.0" prefHeight="31.0" prefWidth="100.0" spacing="5.0" />
+            <TableView fx:id="tvTeams" layoutX="48.0" layoutY="546.0" onMouseClicked="#handleMouseAction" prefHeight="200.0" prefWidth="1079.0">
+               <columns>
+                  <TableColumn fx:id="colTeamId" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="colTeamName" prefWidth="192.0" text="Name" />
+                  <TableColumn fx:id="colTeamTag" minWidth="0.0" prefWidth="71.0" text="Tag" />
+                  <TableColumn fx:id="colTeamMail" prefWidth="523.0" text="Mail" />
+                  <TableColumn fx:id="colTeamReg" prefWidth="161.0" text="Region" />
+               </columns>
+            </TableView>
+            <Label layoutX="68.0" layoutY="509.0" text="SEARCH TEAM" textFill="WHITE" />
+            <TextField fx:id="keywordTextField" layoutX="185.0" layoutY="504.0" prefHeight="31.0" prefWidth="127.0" promptText="Keywords.." />
+            <Label layoutX="48.0" layoutY="87.0" text="TEAM NAME" textFill="WHITE" />
+            <Label layoutX="258.0" layoutY="87.0" text="TEAM TAG" textFill="WHITE" />
+            <Label layoutX="453.0" layoutY="87.0" text="E-MAIL" textFill="WHITE" />
+            <Label layoutX="62.0" layoutY="191.0" text="1:" textFill="WHITE" />
+            <Label layoutX="49.0" layoutY="133.0" text="REGION" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="234.0" text="2:" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="281.0" text="3:" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="329.0" text="4:" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="370.0" text="5:" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="413.0" text="6:" textFill="WHITE" />
+            <Label layoutX="45.0" layoutY="40.0" text="TEAM ID" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font></Label>
+            <JFXComboBox fx:id="role1" focusColor="#f40e4d" layoutX="249.0" layoutY="187.0" onAction="#Select" promptText="Role" />
+            <JFXComboBox fx:id="role2" focusColor="#f40e4d" layoutX="249.0" layoutY="229.0" onAction="#Select" promptText="Role" />
+            <JFXComboBox fx:id="role3" focusColor="#f40e4d" layoutX="249.0" layoutY="276.0" onAction="#Select" promptText="Role" />
+            <JFXComboBox fx:id="role4" focusColor="#f40e4d" layoutX="249.0" layoutY="324.0" onAction="#Select" promptText="Role" />
+            <JFXComboBox fx:id="role5" focusColor="#f40e4d" layoutX="249.0" layoutY="365.0" onAction="#Select" promptText="Role" />
+            <JFXComboBox fx:id="role6" focusColor="#f40e4d" layoutX="249.0" layoutY="408.0" onAction="#Select" promptText="Role" />
+            <JFXButton fx:id="btnInsert" buttonType="RAISED" layoutX="631.0" layoutY="492.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Insert" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="356.0" layoutY="492.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Delete" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="492.0" layoutY="492.0" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Update" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXTextField fx:id="tfTeamId" focusColor="#f40e4d" layoutX="141.0" layoutY="25.0" prefHeight="31.0" prefWidth="100.0" />
+            <JFXTextField fx:id="tfTeamName" focusColor="#f40e4d" layoutX="141.0" layoutY="82.0" prefHeight="31.0" prefWidth="100.0" />
+            <JFXTextField fx:id="tfTeamReg" focusColor="#f40e4d" layoutX="141.0" layoutY="128.0" prefHeight="31.0" prefWidth="100.0" />
+            <JFXTextField fx:id="tfTeamTag" focusColor="#f40e4d" layoutX="339.0" layoutY="82.0" prefHeight="31.0" prefWidth="100.0" />
+            <JFXTextField fx:id="tfTeamMail" focusColor="#f40e4d" layoutX="507.0" layoutY="82.0" prefHeight="31.0" prefWidth="270.0" />
+            <JFXTextField fx:id="riot1" focusColor="#f40e4d" layoutX="102.0" layoutY="187.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="riot2" focusColor="#f40e4d" layoutX="102.0" layoutY="229.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="riot3" focusColor="#f40e4d" layoutX="102.0" layoutY="271.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="riot4" focusColor="#f40e4d" layoutX="102.0" layoutY="319.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="riot5" focusColor="#f40e4d" layoutX="102.0" layoutY="365.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="riot6" focusColor="#f40e4d" layoutX="102.0" layoutY="408.0" prefHeight="31.0" prefWidth="100.0" promptText="RIOT ID" />
+            <JFXTextField fx:id="memberPh1" focusColor="#f40e4d" layoutX="401.0" layoutY="186.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberPh2" focusColor="#f40e4d" layoutX="401.0" layoutY="240.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberPh3" focusColor="#f40e4d" layoutX="401.0" layoutY="287.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberPh4" focusColor="#f40e4d" layoutX="401.0" layoutY="324.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberPh5" focusColor="#f40e4d" layoutX="403.0" layoutY="365.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberPh6" focusColor="#f40e4d" layoutX="401.0" layoutY="408.0" prefHeight="31.0" prefWidth="100.0" promptText="PHONE" />
+            <JFXTextField fx:id="memberMail1" focusColor="#f40e4d" layoutX="564.0" layoutY="187.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXTextField fx:id="memberMail2" focusColor="#f40e4d" layoutX="564.0" layoutY="240.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXTextField fx:id="memberMail3" focusColor="#f40e4d" layoutX="564.0" layoutY="287.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXTextField fx:id="memberMail4" focusColor="#f40e4d" layoutX="564.0" layoutY="324.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXTextField fx:id="memberMail5" focusColor="#f40e4d" layoutX="564.0" layoutY="365.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXTextField fx:id="memberMail6" focusColor="#f40e4d" layoutX="564.0" layoutY="408.0" prefHeight="31.0" prefWidth="249.0" promptText="E-MAIL" />
+            <JFXButton fx:id="btnWeb" buttonType="RAISED" layoutX="1000.0" layoutY="501.0" onAction="#handleButtonStat" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="View Statistics" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="btnid" layoutX="936.0" layoutY="153.0" onAction="#SendMail" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Send Code" textFill="WHITE" />
+            <JFXTextField fx:id="malid" focusColor="#f40e4d" layoutX="907.0" layoutY="117.0" promptText="Verification Code" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="928.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home_page.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnMap" buttonType="RAISED" layoutX="1000.0" layoutY="449.0" onAction="#OnRegionClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="View Region" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+            </JFXButton>
+            <Label fx:id="lbRegion" layoutX="943.0" layoutY="369.0" visible="false" />
+            <JFXButton fx:id="btnHome" buttonType="RAISED" layoutX="1000.0" layoutY="743.0" maxHeight="-Infinity" maxWidth="-Infinity" onAction="#OnHomeClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Home" textFill="WHITE">
+               <effect>
+                  <DropShadow color="#898997" />
+               </effect>
+               <ripplerFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#25135d" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </ripplerFill>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

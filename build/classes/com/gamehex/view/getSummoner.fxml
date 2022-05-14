@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="322.0" prefWidth="1006.0" style="-fx-background-color: #172333;" stylesheets="@../css/Stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.getSummoner">
+   <children>
+      <JFXTextField fx:id="txt_summoner" focusColor="WHITE" layoutX="43.0" layoutY="87.0" promptText="Write Summoner..." styleClass="jfx-text-field" stylesheets="@../css/Stylesheet.css" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="jfxcb_region" layoutX="276.0" layoutY="87.0" prefHeight="39.0" prefWidth="169.0" promptText="Choose Region..." styleClass="jfx-combo-box" stylesheets="@../css/Stylesheet.css" />
+      <JFXTextField fx:id="keywordTextField" focusColor="WHITE" layoutX="674.0" layoutY="87.0" promptText="Keyword..." styleClass="jfx-text-field" stylesheets="@../css/Stylesheet.css" unFocusColor="WHITE" />
+      <JFXButton fx:id="btn_search" layoutX="499.0" layoutY="88.0" onAction="#handleSearchBtn" prefHeight="31.0" prefWidth="148.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Search" textFill="WHITE" />
+      <Label layoutX="43.0" layoutY="45.0" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@../css/Stylesheet.css" text="Summoner Name" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="276.0" layoutY="45.0" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@../css/Stylesheet.css" text="Region" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="674.0" layoutY="45.0" style="-fx-background-color: transparent; -fx-text-fill: white;" stylesheets="@../css/Stylesheet.css" text="Filter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_back" layoutX="745.0" layoutY="267.0" onAction="#handleBackBtn" prefHeight="41.0" prefWidth="114.0" styleClass="buttonfx" text="Back" textFill="WHITE" />
+      <VBox layoutX="43.0" layoutY="159.0" prefHeight="77.0" prefWidth="942.0">
+         <children>
+            <HBox prefHeight="84.0" prefWidth="839.0" spacing="30.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="77.0" prefWidth="173.0" spacing="25.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="177.0" text="Summoner Name" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="summonerName_content" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="187.0" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="77.0" prefWidth="124.0" spacing="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="174.0" text="Summoner Icon" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="iconPane" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="imgView_Profile" fitHeight="30.0" fitWidth="30.0" layoutX="47.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="77.0" prefWidth="95.0" spacing="25.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="163.0" text="Level" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="level_content" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="181.0" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="77.0" prefWidth="188.0" spacing="25.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="193.0" text="Rank" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="rank_content" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="22.0" prefWidth="197.0" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="77.0" prefWidth="222.0" spacing="25.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="22.0" prefWidth="188.0" text="Most Played Champion" textFill="WHITE">
+                           <font>
+                              <Font name="Corbel Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="0.0" prefWidth="197.0" spacing="20.0">
+                           <children>
+                              <ImageView fx:id="imgView_Champ" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="champ_content" alignment="CENTER" prefHeight="30.0" prefWidth="175.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Corbel Bold" size="18.0" />
+                                 </font></Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <JFXButton fx:id="btnHome" buttonType="RAISED" layoutX="878.0" layoutY="268.0" onAction="#OnHomeClicked" prefHeight="35.0" prefWidth="114.0" styleClass="buttonfx" stylesheets="@../css/Stylesheet.css" text="Home" textFill="WHITE">
+         <effect>
+            <DropShadow color="#898997" />
+         </effect>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#25135d" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

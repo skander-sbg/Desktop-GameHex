@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../css/notepad.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamehex.controller.NotePadController">
+   <top>
+      <MenuBar fx:id="menuBar" prefHeight="29.0" prefWidth="168.0" stylesheets="@../css/notepad.css" BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="true" text="_File">
+               <items>
+                  <MenuItem fx:id="newFile" onAction="#newFile" text="New" />
+                  <MenuItem fx:id="openFile" onAction="#openFile" text="Open ..." />
+                  <MenuItem fx:id="saveAsFile" onAction="#saveAsFile" text="Save as..." />
+                  <SeparatorMenuItem />
+                  <MenuItem fx:id="exit" onAction="#exitApp" text="Exit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="true" text="_Edit">
+               <items>
+                  <MenuItem onAction="#undo" text="Undo" />
+                  <MenuItem onAction="#redo" text="Redo" />
+                  <SeparatorMenuItem />
+                  <MenuItem onAction="#cut" text="Cut" />
+                  <MenuItem onAction="#copy" text="Copy" />
+                  <MenuItem onAction="#paste" text="Paste" />
+                  <MenuItem onAction="#delete" text="Delete" />
+                  <SeparatorMenuItem />
+                  <MenuItem onAction="#selectAll" text="Select All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="true" text="_View">
+               <items>
+                  <MenuItem onAction="#fullscreen" text="Fullscreen" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.20656370656370657" stylesheets="@../css/notepad.css">
+         <items>
+            <ListView fx:id="list" items="${controller.leModele.lesTravaux}" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/notepad.css" />
+            <BorderPane>
+               <top>
+                  <TextField fx:id="titleText" stylesheets="@../css/notepad.css" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <TextArea fx:id="contentText" prefHeight="655.0" prefWidth="538.0" stylesheets="@../css/notepad.css" wrapText="true" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="createButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#onCreateButton" prefWidth="400.0" stylesheets="@../css/notepad.css" text="Create" textAlignment="CENTER">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deletedButton" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onDeletedButton" prefWidth="400.0" stylesheets="@../css/notepad.css" text="Delete" textAlignment="CENTER">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>
