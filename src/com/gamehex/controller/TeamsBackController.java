@@ -136,7 +136,7 @@ public class TeamsBackController implements Initializable {
             rs = st.executeQuery(query);
             Teams teams;
             while (rs.next()) {
-                teams = new Teams(rs.getInt("teamId"), rs.getString("teamName"), rs.getString("teamTag"), rs.getString("teamMail"), rs.getString("teamReg"));
+                teams = new Teams(rs.getInt("id"), rs.getString("team_name"), rs.getString("team_tag"), rs.getString("team_mail"), rs.getString("team_reg"));
                 list.add(teams);
             }
 
@@ -150,11 +150,11 @@ public class TeamsBackController implements Initializable {
 
         getColTeamId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamId()));
 
-        getColTeamName().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamName()));
+        getColTeamName().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_name()));
 
-        getColTeamTag().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamTag()));
+        getColTeamTag().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_tag()));
 
-        getColTeamMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamMail()));
+        getColTeamMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_mail()));
 
         getColTeamReg().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamReg()));
 
@@ -170,11 +170,11 @@ public class TeamsBackController implements Initializable {
                 String searchKeyword = newValue.toLowerCase();
                 if (String.valueOf(Teams.getTeamId()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamName().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_name().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamTag().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_tag().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamMail().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_mail().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
                 } else if (Teams.getTeamReg().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
@@ -194,18 +194,18 @@ public class TeamsBackController implements Initializable {
         Teams team = tvTeams.getSelectionModel().getSelectedItem();
 
         System.out.println("Id" + team.getTeamId());
-        System.out.println("Name" + team.getTeamName());
-        System.out.println("Tag" + team.getTeamTag());
-        System.out.println("Mail" + team.getTeamMail());
+        System.out.println("Name" + team.getTeam_name());
+        System.out.println("Tag" + team.getTeam_tag());
+        System.out.println("Mail" + team.getTeam_mail());
         System.out.println("region" + team.getTeamReg());
         teamId = team.getTeamId();
     }
     
     
      private void deleteTeam() {
-        String query = "DELETE FROM teams WHERE teamId=" + teamId + "";
+        String query = "DELETE FROM teams WHERE id=" + teamId + "";
         executeQuery(query);
-        String query1 = "DELETE FROM teamMembers WHERE teamId=" + teamId + "";
+        String query1 = "DELETE FROM team_mates WHERE id=" + teamId + "";
         executeQuery(query1);
         showTeams();
     }

@@ -73,33 +73,26 @@
                         </Pane>
                         <Pane layoutX="71.0" layoutY="354.0" prefHeight="202.0" prefWidth="179.0">
                            <children>
-                              <Button layoutX="14.0" mnemonicParsing="false" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" />
-                              <Circle layoutX="98.0" layoutY="87.0" radius="50.0" strokeType="INSIDE">
-                                 <stroke>
-                                    <LinearGradient endX="1.0" endY="1.0">
-                                       <stops>
-                                          <Stop color="BLACK" />
-                                          <Stop color="WHITE" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </stroke>
+                                <Button layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#OnLibraryClickedfront" opacity="0.7" prefHeight="190.0" prefWidth="168.0" styleClass="button2" />
+                                <Label alignment="CENTER" layoutX="2.0" layoutY="151.0" onMouseClicked="#OnLibraryClickedfront" prefHeight="17.0" prefWidth="168.0" text="Library" textFill="WHITE">
+                                   <font>
+                                      <Font name="Arial Bold" size="13.0" />
+                                   </font>
+                                </Label>
+                                <Circle layoutX="84.0" layoutY="95.0" onMouseClicked="#OnLibraryClickedfront" radius="50.0" strokeType="INSIDE">
                                  <fill>
                                     <LinearGradient endX="1.0" endY="1.0" startY="0.4952380952380952">
                                        <stops>
-                                          <Stop color="#03b5fc" />
-                                          <Stop color="WHITE" offset="1.0" />
+                                          <Stop color="#228997cf" />
+                                          <Stop color="WHITE" offset="0.9961685823754789" />
+                                          <Stop color="#2492a1" offset="1.0" />
                                        </stops>
                                     </LinearGradient>
                                  </fill>
                               </Circle>
-                              <Label alignment="CENTER" layoutX="11.0" layoutY="144.0" prefHeight="17.0" prefWidth="174.0" text="Library" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fitHeight="49.0" fitWidth="37.0" layoutX="80.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="61.0" fitWidth="51.0" layoutX="59.0" layoutY="78.0" onMouseClicked="#OnLibraryClickedfront" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../JavaFXApplication2/src/resources/icons8_Play_Button_50px.png" />
+                                    <Image url="@../assets/library.png" />
                                  </image>
                               </ImageView>
                            </children>

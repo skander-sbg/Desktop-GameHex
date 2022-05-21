@@ -13,7 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import com.gamehex.entity.TeamMembers;
+import com.gamehex.entity.Team_mates;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -32,37 +32,37 @@ import com.gamehex.utils.MyConnection;
 public class TeamMembersController implements Initializable {
 
     @FXML
-    private TableView<TeamMembers> tvMembers;
+    private TableView<Team_mates> tvMembers;
     @FXML
-    private TableColumn<TeamMembers, Integer> colRiotId;
+    private TableColumn<Team_mates, Integer> colRiotId;
     @FXML
-    private TableColumn<TeamMembers, String> colMemberRole;
+    private TableColumn<Team_mates, String> colMemberRole;
     @FXML
-    private TableColumn<TeamMembers, Integer> colMemberPh;
+    private TableColumn<Team_mates, Integer> colMemberPh;
     @FXML
-    private TableColumn<TeamMembers, String> colMemberMail;
+    private TableColumn<Team_mates, String> colMemberMail;
     @FXML
-    private TableColumn<TeamMembers, Integer> colTeamIdd;
+    private TableColumn<Team_mates, Integer> colTeamIdd;
     @FXML
     private TextField keywordTextFieldd;
 
-    public TableColumn<TeamMembers, Integer> getColRiotId() {
+    public TableColumn<Team_mates, Integer> getColRiotId() {
         return colRiotId;
     }
 
-    public TableColumn<TeamMembers, String> getColMemberRole() {
+    public TableColumn<Team_mates, String> getColMemberRole() {
         return colMemberRole;
     }
 
-    public TableColumn<TeamMembers, Integer> getColMemberPh() {
+    public TableColumn<Team_mates, Integer> getColMemberPh() {
         return colMemberPh;
     }
 
-    public TableColumn<TeamMembers, String> getColMemberMail() {
+    public TableColumn<Team_mates, String> getColMemberMail() {
         return colMemberMail;
     }
 
-    public TableColumn<TeamMembers, Integer> getColTeamIdd() {
+    public TableColumn<Team_mates, Integer> getColTeamIdd() {
         return colTeamIdd;
     }
 private Connection conn;
@@ -84,12 +84,12 @@ private Connection conn;
 
     @FXML
     private void handleMouseAction(MouseEvent event) {
-        TeamMembers members = tvMembers.getSelectionModel().getSelectedItem();
+        Team_mates members = tvMembers.getSelectionModel().getSelectedItem();
          System.out.println("RiotId" + members.getRiotId());
-        System.out.println("Role" + members.getMemberRole());
+        System.out.println("Role" + members.getMember_role());
         System.out.println("Phone" + members.getMemberPh());
-        System.out.println("Mail" + members.getMemberMail());
-        System.out.println("Team Id" + members.getTeamId());
+        System.out.println("Mail" + members.getMember_mail());
+        System.out.println("Team Id" + members.getTeam_id());
 //        TeamMembersController.riot1.setText("" + members.getRiotId());
 //        TeamMembersController.role1.setText("" + members.getMemberRole());
 //        TeamMembersController.memberPh1.setText("" + members.getMemberPh());
@@ -97,18 +97,18 @@ private Connection conn;
 
     }
     
-     public ObservableList<TeamMembers> getMembersList() {
+     public ObservableList<Team_mates> getMembersList() {
         
-        String query = "SELECT * FROM teamMembers ";
-        ObservableList<TeamMembers> list = FXCollections.observableArrayList();
+        String query = "SELECT * FROM team_mates ";
+        ObservableList<Team_mates> list = FXCollections.observableArrayList();
         Statement st;
         ResultSet rs;
         try {
             st = conn.createStatement();
             rs = st.executeQuery(query);
-            TeamMembers members;
+            Team_mates members;
             while (rs.next()) {
-                members = new TeamMembers(rs.getInt("riotId"), rs.getString("memberRole"), rs.getInt("memberPhone"), rs.getString("memberMail"), rs.getInt("teamId"));
+                members = new Team_mates(rs.getInt("riot_id"), rs.getString("member_role"), rs.getInt("member_phone"), rs.getString("member_mail"), rs.getInt("team_id"));
                 list.add(members);
             }
 
@@ -119,21 +119,21 @@ private Connection conn;
     }
 
     public void showMembers() {
-        ObservableList<TeamMembers> membersList = getMembersList();
+        ObservableList<Team_mates> membersList = getMembersList();
 
         getColRiotId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getRiotId()));
 
-        getColMemberRole().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMemberRole()));
+        getColMemberRole().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMember_role()));
 
         getColMemberPh().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMemberPh()));
 
-        getColMemberMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMemberMail()));
+        getColMemberMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMember_mail()));
 
-        getColTeamIdd().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamId()));
+        getColTeamIdd().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_id()));
 
         tvMembers.setItems(membersList);
 
-        FilteredList<TeamMembers> filteredData;
+        FilteredList<Team_mates> filteredData;
         filteredData = new FilteredList<>(membersList, b -> true);
         keywordTextFieldd.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(TeamMembers -> {
@@ -143,20 +143,20 @@ private Connection conn;
                 String searchKeyword = newValue.toLowerCase();
                 if (String.valueOf(TeamMembers.getRiotId()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (TeamMembers.getMemberRole().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (TeamMembers.getMember_role().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
                 } else if (String.valueOf(TeamMembers.getMemberPh()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (TeamMembers.getMemberMail().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (TeamMembers.getMember_mail().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(TeamMembers.getTeamId()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(TeamMembers.getTeam_id()).indexOf(searchKeyword) > -1) {
                     return true;
                 } else {
                     return false;
                 }
             });
         });
-        SortedList<TeamMembers> sortedData = new SortedList<>(filteredData);
+        SortedList<Team_mates> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tvMembers.comparatorProperty());
         tvMembers.setItems(sortedData);
 

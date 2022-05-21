@@ -27,15 +27,15 @@ public class GetPlayerByMail {
         try {
             TeamMembers captain = null;
 
-            String requete = "Select memberPhone from teammembers where memberMail = ?";
+            String requete = "Select member_phone from team_mates where member_mail = ?";
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
             pst.setString(1, email);
             ResultSet rs;
             rs = pst.executeQuery();
             if (rs.next()) {
-                number = rs.getInt("memberPhone");
+                number = rs.getInt("member_phone");
                 captain = new TeamMembers(
-                        rs.getInt("memberPhone"));
+                        rs.getInt("member_phone"));
             }
         } catch (SQLException ex) {
             System.out.println(ex);

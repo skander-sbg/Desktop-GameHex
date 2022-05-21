@@ -159,14 +159,14 @@ public class MatchesBackController implements Initializable {
         comMatchRes.setItems(list);
         
         
-        String query = "SELECT teamId FROM teams";
+        String query = "SELECT id FROM teams";
         try {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query); 
            
             while(rs.next()){
-                tfTeam1.getItems().addAll(rs.getInt("teamId"));
-                tfTeam2.getItems().addAll(rs.getInt("teamId"));
+                tfTeam1.getItems().addAll(rs.getInt("id"));
+                tfTeam2.getItems().addAll(rs.getInt("id"));
             }
         }catch (SQLException ex) {
             ex.printStackTrace();
@@ -192,7 +192,7 @@ public class MatchesBackController implements Initializable {
             rs = st.executeQuery(query);
             Matches matches;
             while (rs.next()) {
-                matches = new Matches(rs.getInt("matchid"), rs.getInt("team1"), rs.getInt("team2"), rs.getString("matchres"), rs.getString("matchcom"), rs.getDate("matchDate").toLocalDate(), rs.getTime("matchTime").toLocalTime());
+                matches = new Matches(rs.getInt("id"), rs.getInt("team1_id"), rs.getInt("team2_id"), rs.getString("match_res"), rs.getString("match_com"), rs.getDate("match_date").toLocalDate(), rs.getTime("match_time").toLocalTime());
                 list.add(matches);
             }
 
@@ -204,19 +204,19 @@ public class MatchesBackController implements Initializable {
     public void showMatches() {
         ObservableList<Matches> matchList = getMatchesList();
 
-        getColMatchId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchId()));
+        getColMatchId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getId()));
 
-        getColTeam1().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam1()));
+        getColTeam1().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam1_id()));
 
-        getColTeam2().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam2()));
+        getColTeam2().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam2_id()));
 
-        getColMatchRes().setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMatchRes()));
+        getColMatchRes().setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMatch_res()));
 
-        getColMatchCom().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchCom()));
+        getColMatchCom().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_com()));
         
-        getColMatchDate().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchDate().toString()));
+        getColMatchDate().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_date().toString()));
         
-        getColMatchTime().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchTime().toString()));
+        getColMatchTime().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_time().toString()));
         
         
 
@@ -230,19 +230,19 @@ public class MatchesBackController implements Initializable {
                     return true;
                 }
                 String searchKeyword = newValue.toLowerCase();
-                if (String.valueOf(Matches.getMatchId()).indexOf(searchKeyword) > -1) {
+                if (String.valueOf(Matches.getId()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getTeam1()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getTeam1_id()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getTeam2()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getTeam2_id()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getMatchRes()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getMatch_res()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Matches.getMatchCom().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Matches.getMatch_com().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getMatchDate()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getMatch_date()).indexOf(searchKeyword) > -1) {
                     return true;
-                }else if (String.valueOf(Matches.getMatchTime()).indexOf(searchKeyword) > -1) {
+                }else if (String.valueOf(Matches.getMatch_time()).indexOf(searchKeyword) > -1) {
                     return true;
                 }else {
                     return false;
@@ -259,19 +259,19 @@ public class MatchesBackController implements Initializable {
         
         
         
-        String query = "insert into matches (team1,team2,matchres,matchcom,matchdate, matchtime) values ('" + tfTeam1.getSelectionModel().getSelectedItem().toString() + "','" + tfTeam2.getSelectionModel().getSelectedItem().toString() + "','" + comMatchRes.getSelectionModel().getSelectedItem().toString() + "','" + tfMatchCom.getText() + "','" + tfMatchDate.getValue().toString() +"' , '" +tfMatchTime.getValue().toString()+ "')";
+        String query = "insert into matches (team1_id,team2_id,match_res,match_com,match_date, match_time) values ('" + tfTeam1.getSelectionModel().getSelectedItem().toString() + "','" + tfTeam2.getSelectionModel().getSelectedItem().toString() + "','" + comMatchRes.getSelectionModel().getSelectedItem().toString() + "','" + tfMatchCom.getText() + "','" + tfMatchDate.getValue().toString() +"' , '" +tfMatchTime.getValue().toString()+ "')";
         executeQuery(query);
         showMatches();
     }
 
     private void updateMatch() {
-        String query = "UPDATE matches SET team1 = '" + tfTeam1.getSelectionModel().getSelectedItem().toString() + "' , team2 = '" + tfTeam2.getSelectionModel().getSelectedItem().toString() + "' ,matchres = '" + comMatchRes.getSelectionModel().getSelectedItem().toString() + "' ,matchcom = '" + tfMatchCom.getText() + "' ,matchdate = '" + tfMatchDate.getValue().toString() + "' ,matchtime = '" + tfMatchTime.getValue().toString()+ "' WHERE matchid = " + tfMatchId.getText() + "";
+        String query = "UPDATE matches SET team1_id = '" + tfTeam1.getSelectionModel().getSelectedItem().toString() + "' , team2_id = '" + tfTeam2.getSelectionModel().getSelectedItem().toString() + "' ,match_res = '" + comMatchRes.getSelectionModel().getSelectedItem().toString() + "' ,match_com = '" + tfMatchCom.getText() + "' ,match_date = '" + tfMatchDate.getValue().toString() + "' ,match_time = '" + tfMatchTime.getValue().toString()+ "' WHERE id = " + tfMatchId.getText() + "";
         executeQuery(query);
         showMatches();
     }
 
     private void deleteMatch() {
-        String query = "DELETE FROM matches WHERE matchid=" + tfMatchId.getText() + "";
+        String query = "DELETE FROM matches WHERE id=" + tfMatchId.getText() + "";
         executeQuery(query);
         showMatches();
     }
@@ -290,21 +290,21 @@ public class MatchesBackController implements Initializable {
     @FXML
     private void handleMouseAction(MouseEvent event) {
         Matches match = tvMatches.getSelectionModel().getSelectedItem();
-        System.out.println("Id" + match.getMatchId());
-        System.out.println("team1" + match.getTeam1());
-        System.out.println("team2" + match.getTeam2());
-        System.out.println("Result" + match.getMatchRes());
-        System.out.println("Comment" + match.getMatchCom());
-        System.out.println("Date" + match.getMatchDate());
-        System.out.println("Time" + match.getMatchTime());
+        System.out.println("Id" + match.getId());
+        System.out.println("team1" + match.getTeam1_id());
+        System.out.println("team2" + match.getTeam2_id());
+        System.out.println("Result" + match.getMatch_res());
+        System.out.println("Comment" + match.getMatch_com());
+        System.out.println("Date" + match.getMatch_date());
+        System.out.println("Time" + match.getMatch_time());
 
-        tfMatchId.setText("" + match.getMatchId());
-        tfTeam1.setValue(match.getTeam1());
-        tfTeam2.setValue(match.getTeam2());
-        comMatchRes.setValue("" + match.getMatchRes());
-        tfMatchCom.setText("" + match.getMatchCom());
-        tfMatchDate.setValue(match.getMatchDate());
-        tfMatchTime.setValue(match.getMatchTime());
+        tfMatchId.setText("" + match.getId());
+        tfTeam1.setValue(match.getTeam1_id());
+        tfTeam2.setValue(match.getTeam2_id());
+        comMatchRes.setValue("" + match.getMatch_res());
+        tfMatchCom.setText("" + match.getMatch_com());
+        tfMatchDate.setValue(match.getMatch_date());
+        tfMatchTime.setValue(match.getMatch_time());
     }
 
     @FXML

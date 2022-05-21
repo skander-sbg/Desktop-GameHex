@@ -13,18 +13,18 @@ import java.util.Objects;
  * @author Yasmine Daly
  */
 public class TeamMembers {
-    int riotId;
-    String memberRole;
-    int  memberPhone;
-    String memberMail;
-    int teamId;
+    int riot_id;
+    String member_role;
+    int  member_phone;
+    String member_mail;
+    int team_id;
 
     public TeamMembers(int riotId, String memberRole, int memberPhone, String memberMail, int teamId) {
-        this.riotId = riotId;
-        this.memberRole = memberRole;
-        this.memberPhone = memberPhone;
-        this.memberMail = memberMail;
-        this.teamId = teamId;
+        this.riot_id = riotId;
+        this.member_role = memberRole;
+        this.member_phone = memberPhone;
+        this.member_mail = memberMail;
+        this.team_id = teamId;
     }
 
     public TeamMembers(int aInt) {
@@ -32,58 +32,58 @@ public class TeamMembers {
     }
 
     public Integer getRiotId() {
-        return riotId;
+        return riot_id;
     }
 
-    public String getMemberRole() {
-        return memberRole;
+    public String getMember_role() {
+        return member_role;
     }
 
     public Integer getMemberPh() {
-        return memberPhone;
+        return member_phone;
     }
 
-    public String getMemberMail() {
-        return memberMail;
+    public String getMember_mail() {
+        return member_mail;
     }
 
-    public int getTeamId() {
-        return teamId;
+    public int getTeam_id() {
+        return team_id;
     }
 
-    public void setRiotId(int riotId) {
-        this.riotId = riotId;
+    public void setRiot_id(int riot_id) {
+        this.riot_id = riot_id;
     }
 
-    public void setMemberRole(String memberRole) {
-        this.memberRole = memberRole;
+    public void setMember_role(String member_role) {
+        this.member_role = member_role;
     }
 
     public void setMemberPh(int memberPhone) {
-        this.memberPhone = memberPhone;
+        this.member_phone = memberPhone;
     }
 
-    public void setMemberMail(String memebrMail) {
-        this.memberMail = memebrMail;
+    public void setMember_mail(String memebrMail) {
+        this.member_mail = memebrMail;
     }
 
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
+    public void setTeam_id(int team_id) {
+        this.team_id = team_id;
     }
 
     @Override
     public String toString() {
-        return "TeamMembers{" + "riotId=" + riotId + ", memberRole=" + memberRole + ", memberPhone=" + memberPhone + ", memebrMail=" + memberMail + ", teamId=" + teamId + '}';
+        return "TeamMembers{" + "riotId=" + riot_id + ", memberRole=" + member_role + ", memberPhone=" + member_phone + ", memebrMail=" + member_mail + ", teamId=" + team_id + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.riotId);
-        hash = 47 * hash + Objects.hashCode(this.memberRole);
-        hash = 47 * hash + Objects.hashCode(this.memberPhone);
-        hash = 47 * hash + Objects.hashCode(this.memberMail);
-        hash = 47 * hash + this.teamId;
+        hash = 47 * hash + Objects.hashCode(this.riot_id);
+        hash = 47 * hash + Objects.hashCode(this.member_role);
+        hash = 47 * hash + Objects.hashCode(this.member_phone);
+        hash = 47 * hash + Objects.hashCode(this.member_mail);
+        hash = 47 * hash + this.team_id;
         return hash;
     }
 
@@ -99,19 +99,19 @@ public class TeamMembers {
             return false;
         }
         final TeamMembers other = (TeamMembers) obj;
-        if (this.teamId != other.teamId) {
+        if (this.team_id != other.team_id) {
             return false;
         }
-        if (!Objects.equals(this.memberRole, other.memberRole)) {
+        if (!Objects.equals(this.member_role, other.member_role)) {
             return false;
         }
-        if (!Objects.equals(this.memberMail, other.memberMail)) {
+        if (!Objects.equals(this.member_mail, other.member_mail)) {
             return false;
         }
-        if (!Objects.equals(this.riotId, other.riotId)) {
+        if (!Objects.equals(this.riot_id, other.riot_id)) {
             return false;
         }
-        if (!Objects.equals(this.memberPhone, other.memberPhone)) {
+        if (!Objects.equals(this.member_phone, other.member_phone)) {
             return false;
         }
         return true;

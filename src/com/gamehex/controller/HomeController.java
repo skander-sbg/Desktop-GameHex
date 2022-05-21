@@ -92,6 +92,31 @@ public class HomeController implements Initializable {
     @FXML
     private void OnTournamentsClicked(MouseEvent event) {
     }
+    
+    @FXML
+    private void OnLibraryClickedfront(MouseEvent event) {
+        try {
+
+            
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent parent = FXMLLoader.load(getClass().getResource("/com/gamehex/view/LibraryChooseFront.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setTitle("Library");
+            //stage.getIcons().add(new Image("com/gamehex/assets/NotePad.png"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException e) {
+        }
+
+    }
+    
+    @FXML
+    private void OnLibraryClicked(MouseEvent event) {
+    }
 
     @FXML
     private void OnCoachingClickedfront(MouseEvent event) throws IOException {

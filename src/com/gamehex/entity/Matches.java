@@ -17,13 +17,13 @@ import java.time.LocalTime;
  */
 public class Matches {
     
-    private int matchId;
-    private int team1;
-    private int team2;
-    private String matchRes;
-    private String matchCom;
-    private LocalDate matchDate;
-    private LocalTime matchTime;
+    private int id;
+    private int team1_id;
+    private int team2_id;
+    private String match_res;
+    private String match_com;
+    private LocalDate match_date;
+    private LocalTime match_time;
     public Matches() {
     }
 
@@ -36,81 +36,81 @@ public class Matches {
  */
 
     public Matches(int matchId, int team1, int team2, String matchRes, String matchCom, LocalDate matchDate, LocalTime matchTime) {
-        this.matchId = matchId;
-        this.team1 = team1;
-        this.team2 = team2;
-        this.matchRes = matchRes;
-        this.matchCom = matchCom;
-        this.matchDate = matchDate;
-        this.matchTime = matchTime;
+        this.id = matchId;
+        this.team1_id = team1;
+        this.team2_id = team2;
+        this.match_res = matchRes;
+        this.match_com = matchCom;
+        this.match_date = matchDate;
+        this.match_time = matchTime;
     }
 
-    public int getMatchId() {
-        return matchId;
+    public int getId() {
+        return id;
     }
 
-    public int getTeam1() {
-        return team1;
+    public int getTeam1_id() {
+        return team1_id;
     }
 
-    public int getTeam2() {
-        return team2;
+    public int getTeam2_id() {
+        return team2_id;
     }
 
-    public String getMatchRes() {
-        return matchRes;
+    public String getMatch_res() {
+        return match_res;
     }
 
-    public String getMatchCom() {
-        return matchCom;
+    public String getMatch_com() {
+        return match_com;
     }
 
-    public LocalDate getMatchDate() {
-        return matchDate;
+    public LocalDate getMatch_date() {
+        return match_date;
     }
 
-    public LocalTime getMatchTime() {
-        return matchTime;
+    public LocalTime getMatch_time() {
+        return match_time;
     }
 
-    public void setMatchId(int matchId) {
-        this.matchId = matchId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTeam1(int team1) {
-        this.team1 = team1;
+    public void setTeam1_id(int team1_id) {
+        this.team1_id = team1_id;
     }
 
-    public void setTeam2(int team2) {
-        this.team2 = team2;
+    public void setTeam2_id(int team2_id) {
+        this.team2_id = team2_id;
     }
 
-    public void setMatchRes(String matchRes) {
-        this.matchRes = matchRes;
+    public void setMatch_res(String match_res) {
+        this.match_res = match_res;
     }
 
-    public void setMatchCom(String matchCom) {
-        this.matchCom = matchCom;
+    public void setMatch_com(String match_com) {
+        this.match_com = match_com;
     }
 
-    public void setMatchDate(LocalDate matchDate) {
-        this.matchDate = matchDate;
+    public void setMatch_date(LocalDate match_date) {
+        this.match_date = match_date;
     }
 
-    public void setMatchTime(LocalTime matchTime) {
-        this.matchTime = matchTime;
+    public void setMatch_time(LocalTime match_time) {
+        this.match_time = match_time;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + this.matchId;
-        hash = 97 * hash + this.team1;
-        hash = 97 * hash + this.team2;
-        hash = 97 * hash + Objects.hashCode(this.matchRes);
-        hash = 97 * hash + Objects.hashCode(this.matchCom);
-        hash = 97 * hash + Objects.hashCode(this.matchDate);
-        hash = 97 * hash + Objects.hashCode(this.matchTime);
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + this.team1_id;
+        hash = 97 * hash + this.team2_id;
+        hash = 97 * hash + Objects.hashCode(this.match_res);
+        hash = 97 * hash + Objects.hashCode(this.match_com);
+        hash = 97 * hash + Objects.hashCode(this.match_date);
+        hash = 97 * hash + Objects.hashCode(this.match_time);
         return hash;
     }
 
@@ -126,25 +126,25 @@ public class Matches {
             return false;
         }
         final Matches other = (Matches) obj;
-        if (this.matchId != other.matchId) {
+        if (this.id != other.id) {
             return false;
         }
-        if (this.team1 != other.team1) {
+        if (this.team1_id != other.team1_id) {
             return false;
         }
-        if (this.team2 != other.team2) {
+        if (this.team2_id != other.team2_id) {
             return false;
         }
-        if (!Objects.equals(this.matchRes, other.matchRes)) {
+        if (!Objects.equals(this.match_res, other.match_res)) {
             return false;
         }
-        if (!Objects.equals(this.matchCom, other.matchCom)) {
+        if (!Objects.equals(this.match_com, other.match_com)) {
             return false;
         }
-        if (!Objects.equals(this.matchDate, other.matchDate)) {
+        if (!Objects.equals(this.match_date, other.match_date)) {
             return false;
         }
-        if (!Objects.equals(this.matchTime, other.matchTime)) {
+        if (!Objects.equals(this.match_time, other.match_time)) {
             return false;
         }
         return true;
@@ -152,7 +152,7 @@ public class Matches {
 
     @Override
     public String toString() {
-        return "Matches{" + "matchId=" + matchId + ", team1=" + team1 + ", team2=" + team2 + ", matchRes=" + matchRes + ", matchCom=" + matchCom + ", matchDate=" + matchDate + ", matchTime=" + matchTime + '}';
+        return "Matches{" + "matchId=" + id + ", team1=" + team1_id + ", team2=" + team2_id + ", matchRes=" + match_res + ", matchCom=" + match_com + ", matchDate=" + match_date + ", matchTime=" + match_time + '}';
     }
 
     

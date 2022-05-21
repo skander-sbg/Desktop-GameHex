@@ -59,6 +59,33 @@ public class DashboardHomeController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    @FXML
+    private void OnSkanderClickedback(ActionEvent event) throws IOException {
+        
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent parent = FXMLLoader.load(getClass().getResource("/com/gamehex/view/LibraryChooseBack.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setTitle("Library");
+        //stage.getIcons().add(new Image("com/gamehex/assets/NotePad.png"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    @FXML
+    private void OnLibraryClickedback(MouseEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Parent parent = FXMLLoader.load(getClass().getResource("/com/gamehex/view/LibraryChooseBack.fxml"));
+        Scene scene = new Scene(parent);
+        Stage stage = new Stage();
+        stage.setTitle("Library");
+        //stage.getIcons().add(new Image("com/gamehex/assets/NotePad.png"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     private void OnUserClickedback(MouseEvent event) throws IOException {

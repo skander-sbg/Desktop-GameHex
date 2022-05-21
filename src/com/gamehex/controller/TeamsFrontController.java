@@ -5,7 +5,7 @@
  */
 package com.gamehex.controller;
 
-import com.gamehex.entity.TeamMembers;
+import com.gamehex.entity.Team_mates;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -85,12 +85,12 @@ public class TeamsFrontController implements Initializable {
     private TableColumn<Teams, String> colTeamReg;
     @FXML
     private TextField tfTeamId;
-    private TableColumn<TeamMembers, Integer> colRiotId;
-    private TableColumn<TeamMembers, String> colMemberRole;
-    private TableColumn<TeamMembers, Integer> colMemberPh;
-    private TableColumn<TeamMembers, String> colMemberMail;
-    private TableColumn<TeamMembers, Integer> colTeamIdd;
-    private TableView<TeamMembers> tvMembers;
+    private TableColumn<Team_mates, Integer> colRiotId;
+    private TableColumn<Team_mates, String> colMemberRole;
+    private TableColumn<Team_mates, Integer> colMemberPh;
+    private TableColumn<Team_mates, String> colMemberMail;
+    private TableColumn<Team_mates, Integer> colTeamIdd;
+    private TableView<Team_mates> tvMembers;
     private TextField keywordTextFieldd;
     @FXML
     public TextField riot1;
@@ -150,7 +150,7 @@ public class TeamsFrontController implements Initializable {
 
     GetPlayerByMail getPlayerByMail = new GetPlayerByMail();
     public static final String ACCOUNT_SID = "AC90ac083ebfd6f6485124fb25d08fbbb0";
-    public static final String AUTH_TOKEN = "d9964c385389b51c5fe3ae2464a8b1b0";
+    public static final String AUTH_TOKEN = "9b9845a946c52aee9b451be913eb03b0";
     @FXML
     private JFXButton btnid;
     @FXML
@@ -200,15 +200,15 @@ public class TeamsFrontController implements Initializable {
         Teams team = tvTeams.getSelectionModel().getSelectedItem();
 
         System.out.println("Id" + team.getTeamId());
-        System.out.println("Name" + team.getTeamName());
-        System.out.println("Tag" + team.getTeamTag());
-        System.out.println("Mail" + team.getTeamMail());
+        System.out.println("Name" + team.getTeam_name());
+        System.out.println("Tag" + team.getTeam_tag());
+        System.out.println("Mail" + team.getTeam_mail());
         System.out.println("region" + team.getTeamReg());
 
         tfTeamId.setText("" + team.getTeamId());
-        tfTeamName.setText("" + team.getTeamName());
-        tfTeamTag.setText("" + team.getTeamTag());
-        tfTeamMail.setText("" + team.getTeamMail());
+        tfTeamName.setText("" + team.getTeam_name());
+        tfTeamTag.setText("" + team.getTeam_tag());
+        tfTeamMail.setText("" + team.getTeam_mail());
         tfTeamReg.setText("" + team.getTeamReg());
         lbRegion.setText(team.getTeamReg());
 
@@ -225,7 +225,7 @@ public class TeamsFrontController implements Initializable {
                     & validateEmail(memberMail3) & validateEmail(memberMail4) & validateEmail(memberMail5) & validateEmail(memberMail6)
                     & validatePhone(memberPh1) & validatePhone(memberPh2) & validatePhone(memberPh3)
                     & validatePhone(memberPh4) & validatePhone(memberPh5) & validatePhone(memberPh6)) {
-                insertTeam();
+                insertTeam1();
             }
         
                 
@@ -238,23 +238,23 @@ public class TeamsFrontController implements Initializable {
         }
     
 
-    public TableColumn<TeamMembers, Integer> getColRiotId() {
+    public TableColumn<Team_mates, Integer> getColRiotId() {
         return colRiotId;
     }
 
-    public TableColumn<TeamMembers, String> getColMemberRole() {
+    public TableColumn<Team_mates, String> getColMemberRole() {
         return colMemberRole;
     }
 
-    public TableColumn<TeamMembers, Integer> getColMemberPh() {
+    public TableColumn<Team_mates, Integer> getColMemberPh() {
         return colMemberPh;
     }
 
-    public TableColumn<TeamMembers, String> getColMemberMail() {
+    public TableColumn<Team_mates, String> getColMemberMail() {
         return colMemberMail;
     }
 
-    public TableColumn<TeamMembers, Integer> getColTeamIdd() {
+    public TableColumn<Team_mates, Integer> getColTeamIdd() {
         return colTeamIdd;
     }
 
@@ -280,7 +280,7 @@ public class TeamsFrontController implements Initializable {
 
     public ObservableList<Teams> getTeamsList() {
 
-        String query = "SELECT * FROM teams WHERE userID = " + this.UID + "";
+        String query = "SELECT * FROM teams WHERE user_id = " + this.UID + "";
         ObservableList<Teams> list = FXCollections.observableArrayList();
         Statement st;
         ResultSet rs;
@@ -289,7 +289,7 @@ public class TeamsFrontController implements Initializable {
             rs = st.executeQuery(query);
             Teams teams;
             while (rs.next()) {
-                teams = new Teams(rs.getInt("teamId"), rs.getString("teamName"), rs.getString("teamTag"), rs.getString("teamMail"), rs.getString("teamReg"));
+                teams = new Teams(rs.getInt("id"), rs.getString("team_name"), rs.getString("team_tag"), rs.getString("team_tag"), rs.getString("team_reg"));
                 list.add(teams);
             }
 
@@ -303,11 +303,11 @@ public class TeamsFrontController implements Initializable {
 
         getColTeamId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamId()));
 
-        getColTeamName().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamName()));
+        getColTeamName().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_name()));
 
-        getColTeamTag().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamTag()));
+        getColTeamTag().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_tag()));
 
-        getColTeamMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamMail()));
+        getColTeamMail().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam_mail()));
 
         getColTeamReg().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeamReg()));
 
@@ -323,11 +323,11 @@ public class TeamsFrontController implements Initializable {
                 String searchKeyword = newValue.toLowerCase();
                 if (String.valueOf(Teams.getTeamId()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamName().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_name().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamTag().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_tag().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Teams.getTeamMail().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Teams.getTeam_mail().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
                 } else if (Teams.getTeamReg().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
@@ -375,9 +375,7 @@ public class TeamsFrontController implements Initializable {
             System.out.println("Error:" + ex.getMessage());
         }
         try {
-            String query = "insert into teams (teamName,teamTag,teamMail,teamReg, `userID`) values ('" + tfTeamName.getText() + "','" + tfTeamTag.getText() + "','" + tfTeamMail.getText() + "','" + tfTeamReg.getText() + "', '" + this.UID + "')";
-            //executeQuery(query);
-
+            String query = "insert into teams (team_name,team_tag,team_mail,team_reg, `user_id`) values ('" + tfTeamName.getText() + "','" + tfTeamTag.getText() + "','" + tfTeamMail.getText() + "','" + tfTeamReg.getText() + "', '" + this.UID + "')";
             PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
             ps.execute();
@@ -387,20 +385,21 @@ public class TeamsFrontController implements Initializable {
             if (rs.next()) {
                 generatedKey = rs.getInt(1);
             }
-            
-            String query1 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES  ('" + riot1.getText() + "','" + role1.getSelectionModel().getSelectedItem() + "','" + memberPh1.getText() + "','" + memberMail1.getText() + "' , '" + generatedKey + "', '" + this.UID + "')";
+            System.out.println("now inserting members");
+            System.out.println(riot1.getText());
+            String query1 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES  ('" + riot1.getText() + "','" + role1.getSelectionModel().getSelectedItem() + "','" + memberPh1.getText() + "','" + memberMail1.getText() + "' , '" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query1);
-            String query2 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES ('" + riot2.getText() + "','" + role2.getSelectionModel().getSelectedItem() + "','" + memberPh2.getText() + "','" + memberMail2.getText() + "','" + generatedKey + "', '" + this.UID + "')";
+            String query2 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES ('" + riot2.getText() + "','" + role2.getSelectionModel().getSelectedItem() + "','" + memberPh2.getText() + "','" + memberMail2.getText() + "','" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query2);
-            String query3 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES ('" + riot3.getText() + "','" + role3.getSelectionModel().getSelectedItem() + "','" + memberPh3.getText() + "','" + memberMail3.getText() + "','" + generatedKey + "', '" + this.UID + "')";
+            String query3 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES ('" + riot3.getText() + "','" + role3.getSelectionModel().getSelectedItem() + "','" + memberPh3.getText() + "','" + memberMail3.getText() + "','" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query3);
-            String query4 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES ('" + riot4.getText() + "','" + role4.getSelectionModel().getSelectedItem() + "','" + memberPh4.getText() + "','" + memberMail4.getText() + "','" + generatedKey + "', '" + this.UID + "')";
+            String query4 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES ('" + riot4.getText() + "','" + role4.getSelectionModel().getSelectedItem() + "','" + memberPh4.getText() + "','" + memberMail4.getText() + "','" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query4);
-            String query5 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES ('" + riot5.getText() + "','" + role5.getSelectionModel().getSelectedItem() + "','" + memberPh5.getText() + "','" + memberMail5.getText() + "','" + generatedKey + "', '" + this.UID + "')";
+            String query5 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES ('" + riot5.getText() + "','" + role5.getSelectionModel().getSelectedItem() + "','" + memberPh5.getText() + "','" + memberMail5.getText() + "','" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query5);
-            String query6 = "INSERT INTO `teammembers` (`riotId`, `memberRole`, `memberPhone`, `memberMail`, `teamId`, `userID`) VALUES ('" + riot6.getText() + "','" + role6.getSelectionModel().getSelectedItem() + "','" + memberPh6.getText() + "','" + memberMail6.getText() + "','" + generatedKey + "', '" + this.UID + "')";
+            String query6 = "INSERT INTO `team_mates` (`riot_id`, `member_role`, `member_phone`, `member_mail`, `team_id`, `user_id`) VALUES ('" + riot6.getText() + "','" + role6.getSelectionModel().getSelectedItem() + "','" + memberPh6.getText() + "','" + memberMail6.getText() + "','" + generatedKey + "', '" + this.UID + "')";
             executeQuery(query6);
-           
+           System.out.println("done inserting members");
             System.out.println("Inserted record's ID: " + generatedKey);
         } catch (SQLException ex) {
             System.out.println("Error:" + ex.getMessage());
@@ -414,28 +413,28 @@ public class TeamsFrontController implements Initializable {
     }
 
     private void updateTeam() {
-        String query = "UPDATE teams SET teamName = '" + tfTeamName.getText() + "' , teamTag = '" + tfTeamTag.getText() + "' ,teamMail = '" + tfTeamMail.getText() + "' ,teamReg = '" + tfTeamReg.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query = "UPDATE teams SET team_name = '" + tfTeamName.getText() + "' , team_tag = '" + tfTeamTag.getText() + "' ,team_mail = '" + tfTeamMail.getText() + "' ,team_reg = '" + tfTeamReg.getText() + "' WHERE id = " + tfTeamId.getText() + "";
         executeQuery(query);
-        String query1 = "UPDATE teammembers SET riotId = '" + riot1.getText() + "' , memberRole = '" + role1.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh1.getText() + "' ,memberMail = '" + memberMail1.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query1 = "UPDATE team_mates SET riot_id = '" + riot1.getText() + "' , member_role = '" + role1.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh1.getText() + "' ,member_mail = '" + memberMail1.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query1);
-        String query2 = "UPDATE teammembers SET riotId = '" + riot2.getText() + "' , memberRole = '" + role2.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh2.getText() + "' ,memberMail = '" + memberMail2.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query2 = "UPDATE team_mates SET riot_id = '" + riot2.getText() + "' , member_role = '" + role2.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh2.getText() + "' ,member_mail = '" + memberMail2.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query2);
-        String query3 = "UPDATE teammembers SET riotId = '" + riot3.getText() + "' , memberRole = '" + role3.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh3.getText() + "' ,memberMail = '" + memberMail3.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query3 = "UPDATE team_mates SET riot_id = '" + riot3.getText() + "' , member_role = '" + role3.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh3.getText() + "' ,member_mail = '" + memberMail3.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query3);
-        String query4 = "UPDATE teammembers SET riotId = '" + riot4.getText() + "' , memberRole = '" + role4.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh4.getText() + "' ,memberMail = '" + memberMail4.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query4 = "UPDATE team_mates SET riot_id = '" + riot4.getText() + "' , member_role = '" + role4.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh4.getText() + "' ,member_mail = '" + memberMail4.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query4);
-        String query5 = "UPDATE teammembers SET riotId = '" + riot5.getText() + "' , memberRole = '" + role5.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh5.getText() + "' ,memberMail = '" + memberMail5.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query5 = "UPDATE team_mates SET riot_id = '" + riot5.getText() + "' , member_role = '" + role5.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh5.getText() + "' ,member_mail = '" + memberMail5.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query5);
-        String query6 = "UPDATE teammembers SET riotId = '" + riot6.getText() + "' , memberRole = '" + role6.getSelectionModel().getSelectedItem() + "' ,memberPhone = '" + memberPh6.getText() + "' ,memberMail = '" + memberMail6.getText() + "' WHERE TeamId = " + tfTeamId.getText() + "";
+        String query6 = "UPDATE team_mates SET riot_id = '" + riot6.getText() + "' , member_role = '" + role6.getSelectionModel().getSelectedItem() + "' ,member_phone = '" + memberPh6.getText() + "' ,member_mail = '" + memberMail6.getText() + "' WHERE team_id = " + tfTeamId.getText() + "";
         executeQuery(query6);
         showTeams();
         //showMembers();
     }
 
     private void deleteTeam() {
-        String query = "DELETE FROM teams WHERE teamId=" + tfTeamId.getText() + "";
+        String query = "DELETE FROM teams WHERE id=" + tfTeamId.getText() + "";
         executeQuery(query);
-        String query1 = "DELETE FROM teamMembers WHERE teamId=" + tfTeamId.getText() + "";
+        String query1 = "DELETE FROM team_mates WHERE id=" + tfTeamId.getText() + "";
         executeQuery(query1);
         showTeams();
     }

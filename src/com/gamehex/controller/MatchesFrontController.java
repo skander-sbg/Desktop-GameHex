@@ -119,7 +119,7 @@ public class MatchesFrontController implements Initializable {
             rs = st.executeQuery(query);
             Matches matches;
             while (rs.next()) {
-                matches = new Matches(rs.getInt("matchid"), rs.getInt("team1"), rs.getInt("team2"), rs.getString("matchres"), rs.getString("matchcom"), rs.getDate("matchDate").toLocalDate(), rs.getTime("matchTime").toLocalTime());
+                matches = new Matches(rs.getInt("id"), rs.getInt("team1_id"), rs.getInt("team2_id"), rs.getString("match_res"), rs.getString("match_com"), rs.getDate("match_date").toLocalDate(), rs.getTime("match_time").toLocalTime());
                 list.add(matches);
             }
 
@@ -131,19 +131,19 @@ public class MatchesFrontController implements Initializable {
     public void showMatches() {
         ObservableList<Matches> matchList = getMatchesList();
 
-        getColMatchId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchId()));
+        getColMatchId().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getId()));
 
-        getColTeam1().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam1()));
+        getColTeam1().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam1_id()));
 
-        getColTeam2().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam2()));
+        getColTeam2().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getTeam2_id()));
 
-        getColMatchRes().setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMatchRes()));
+        getColMatchRes().setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getMatch_res()));
 
-        getColMatchCom().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchCom()));
+        getColMatchCom().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_com()));
 
-        getColMatchDate().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchDate().toString()));
+        getColMatchDate().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_date().toString()));
 
-        getColMatchTime().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatchTime().toString()));
+        getColMatchTime().setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getMatch_time().toString()));
 
         tvMatches.setItems(matchList);
 
@@ -155,19 +155,19 @@ public class MatchesFrontController implements Initializable {
                     return true;
                 }
                 String searchKeyword = newValue.toLowerCase();
-                if (String.valueOf(Matches.getMatchId()).indexOf(searchKeyword) > -1) {
+                if (String.valueOf(Matches.getId()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getTeam1()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getTeam1_id()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getTeam2()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getTeam2_id()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getMatchRes()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getMatch_res()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (Matches.getMatchCom().toLowerCase().indexOf(searchKeyword) > -1) {
+                } else if (Matches.getMatch_com().toLowerCase().indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getMatchDate()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getMatch_date()).indexOf(searchKeyword) > -1) {
                     return true;
-                } else if (String.valueOf(Matches.getMatchTime()).indexOf(searchKeyword) > -1) {
+                } else if (String.valueOf(Matches.getMatch_time()).indexOf(searchKeyword) > -1) {
                     return true;
                 } else {
                     return false;
